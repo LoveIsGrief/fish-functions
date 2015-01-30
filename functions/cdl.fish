@@ -5,7 +5,7 @@ function cdl -d "Automatically output folder after changing to it."
             #When a file is given just read the directory
 
             #Follow symlink, if it isn't just set the normal value
-            set path (readlink --no-newline $argv[1])
+            set path (readlink --canonicalize-missing --no-newline $argv[1])
             if test -z $path
                     set path $argv[1]
             end
